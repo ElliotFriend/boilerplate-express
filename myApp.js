@@ -32,9 +32,10 @@ app.use('/public', express.static(__dirname + '/public'))
 // })
 
 // 6. Use the .env File
-require('dotenv').config()
+// require('dotenv').config()
 let messageText = "Hello json"
-messageText = process.env.MESSAGE_STYLE == "uppercase" ? messageText.toUpperCase() : messageText
+// messageText = process.env.MESSAGE_STYLE == "uppercase" ? messageText.toUpperCase() : messageText
+messageText = process.env['MESSAGE_STYLE'] == "uppercase" ? messageText.toUpperCase() : messageText
 app.get('/json', (req, res) => {
   res.json({"message": messageText})
 })
