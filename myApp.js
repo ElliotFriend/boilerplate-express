@@ -1,17 +1,8 @@
 var express = require('express');
 var app = express();
 
-var port = 3000
-
-const consoleLog = "<script>console.log('Hello World')</script>"
-
-app.get('/', (req, res) => {
-  res.send(consoleLog)
-})
-
-app.listen(port, () => {
-  console.log("Starting up!")
-})
+// 1. Meet the Node Console
+console.log("Hello World")
 
 
 
@@ -37,4 +28,5 @@ app.listen(port, () => {
 
 
 
-// module.exports = app;
+
+module.exports = app;
