@@ -1,14 +1,14 @@
 var express = require('express');
 var app = express();
 
-var port = 3000
+var port = 80
 
 app.get('/', (req, res) => {
-  res.send("Hello World")
+  res.send(console.log("Hello World"))
 })
 
 app.listen(port, () => {
-  console.log("Hello World")
+  console.log("Starting up!")
 })
 
 
@@ -35,4 +35,4 @@ app.listen(port, () => {
 
 
 
- module.exports = app;
+// module.exports = app;
