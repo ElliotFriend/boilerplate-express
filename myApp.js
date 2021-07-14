@@ -1,6 +1,12 @@
 var express = require('express');
 var app = express();
 
+// 7. Implement a Root-Level Request Logger Middleware
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path} - ${req.ip}`)
+  next()
+})
+
 // 1. Meet the Node Console
 // console.log("Hello World")
 
