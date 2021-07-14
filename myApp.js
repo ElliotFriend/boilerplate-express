@@ -21,8 +21,16 @@ app.get('/', (req, res) => {
 app.use('/public', express.static(__dirname + '/public'))
 
 // 5. Serve JSON on a Specific Route
+// app.get('/json', (req, res) => {
+//   res.json({"message": "Hello json"})
+// })
+
+// 6. Use the .env File
+require('dotenv').config()
+let messageText = "Hello json"
+messageText = process.env.MESSAGE_STYLE == "uppercase" ? messageText.toUpperCase() : messageText
 app.get('/json', (req, res) => {
-  res.json({"message": "Hello json"})
+  res.json({"message": messageText})
 })
 
 module.exports = app;
