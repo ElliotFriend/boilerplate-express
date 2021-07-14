@@ -14,25 +14,10 @@ const options = {
   root: __dirname,
 }
 app.get('/', (req, res) => {
-  res.sendFile("views/index.html", options)
+  res.sendFile('views/index.html', options)
 })
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// 4. Serve Static Assets
+app.use('/public', express.static(__dirname + '/public'))
 
 module.exports = app;
