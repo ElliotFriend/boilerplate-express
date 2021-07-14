@@ -1,10 +1,12 @@
 var express = require('express');
 var app = express();
 
-var port = 80
+var port = 3000
+
+const consoleLog = "<script>console.log('Hello World')</script>"
 
 app.get('/', (req, res) => {
-  res.send(console.log("Hello World"))
+  res.send(consoleLog)
 })
 
 app.listen(port, () => {
