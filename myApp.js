@@ -1,11 +1,15 @@
 var express = require('express');
 var app = express();
+const bodyParser = require('body-parser');
 
 // 7. Implement a Root-Level Request Logger Middleware
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.path} - ${req.ip}`)
   next()
 })
+
+// 11. Use body-parser to Parse POST Requests
+app.use(bodyParser.urlencoded({extended: false}))
 
 // 1. Meet the Node Console
 // console.log("Hello World")
@@ -56,7 +60,11 @@ app.get('/:word/echo', (req, res) => {
 // 10. Get Query Parameter Input from the Client
 app.route('/name')
   .get((req, res) => {
-    res.send({"name": `${req.query.first} ${req.query.last}`})
+    res.json({"name": `${req.query.first} ${req.query.last}`})
+  })
+  // 11. Use body-parser to Parse POST Requests
+  .post((req, res) => {
+    res.json({"name": `${req.body.first} ${req.body.last}`})
   })
 
 module.exports = app;
