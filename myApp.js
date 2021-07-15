@@ -53,4 +53,10 @@ app.get('/:word/echo', (req, res) => {
   res.json({"echo": req.params.word})
 })
 
+// 10. Get Query Parameter Input from the Client
+app.route('/name')
+  .get((req, res) => {
+    res.send({"name": `${req.query.first} ${req.query.last}`})
+  })
+
 module.exports = app;
