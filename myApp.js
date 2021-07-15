@@ -40,12 +40,17 @@ app.get('/json', (req, res) => {
   res.json({"message": messageText})
 })
 
-// 7. Chain Middleware to Create a Time Server
+// 8. Chain Middleware to Create a Time Server
 app.get('/now', (req, res, next) => {
   req.time = Date().toString()
   next()
 }, (req, res) => {
   res.json({"time": req.time})
+})
+
+// 9. Get Route Parameter Input from the Client
+app.get('/:word/echo', (req, res) => {
+  res.json({"echo": req.params.word})
 })
 
 module.exports = app;
